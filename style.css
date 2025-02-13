@@ -1,0 +1,847 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,119,202,1) 100%);
+    /* background-image: url(img/tim.png);
+    background-size: 195px;
+    background-repeat: repeat;*/
+
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+body::before {
+    content: "";
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle, rgb(255, 255, 255) 2px, transparent 2px);
+    background-size: 10px 10px;
+    opacity: 0.7;
+    z-index: -6;
+}
+
+
+
+ @font-face {
+        font-family: myFirstFont;
+        src: url(font/Oliver-Regular.ttf);
+ }
+
+ @font-face {
+    font-family: mySecFont;
+    src: url(font/Papernotes.ttf);
+}
+  h1 {
+    color: #ff69c1;
+    text-align: center;
+    font-family: myFirstFont;
+    font-size: 17px;
+   /* -webkit-text-stroke-width: 1px;*/
+    -webkit-text-stroke-color: #ff78cb;
+
+    background: linear-gradient(0deg, rgba(249,253,255,1) 0%, rgba(205,241,255,1) 100%);
+    border: 2px solid  #ff78cb;
+    border-radius: 50px;
+    padding-left:10px;
+    padding-right:12px;
+
+  }
+
+  h2{
+    text-align: center;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 40px;
+    font-weight: lighter;
+
+    margin-top: 5vw;
+    display: inline-block;
+    transition: transform 0.3s ease-in-out; /* Hiệu ứng mượt */
+  }
+
+  #vlt{
+    font-style: italic;
+    font-size: 55px;
+    line-height: 10px;
+  }
+
+  h3{
+    text-align: center;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 30px;
+
+    margin-top: -2vw;
+
+  }
+
+  #banner{
+    position: fixed;
+    display: flex;
+    /*background-color: #cdf1ff;*/
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    justify-content:flex-start;
+
+    background: linear-gradient(0deg, rgba(255,254,183,1) 0%, rgba(255,255,255,1) 100%);
+    z-index: -5;
+  }
+
+  #banner::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgb(255, 88, 191) 2px, transparent 2px);
+    background-size: 10px 10px;
+    opacity: 0.7;
+    z-index: -5;
+}
+#from, #to{
+    margin-left: 30px;
+}
+
+  #container {
+    z-index: 5;
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between; /* Đẩy #polaroid1 sang trái, #polaroid2 sang phải */
+    align-items: center; /* Canh giữa theo chiều dọc */
+    
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 90vw; 
+}
+
+
+#polaroid1, #polaroid2 {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+
+
+#img6, #img4{
+    width: 300px;
+    height:auto;
+    margin-top: 0px;
+    z-index: 1;
+}
+
+#img1, #img3 {
+    width: 300px;
+    height:auto;
+    margin-top: -110px;
+    z-index: 3;
+}
+#img2{
+    width: 300px;
+    height:auto;
+    margin-top: -110px;
+    margin-left: 100px;
+    z-index: 2;
+
+}
+#img5 {
+    width: 300px;
+    height:auto;
+    margin-top: -110px;
+    margin-left: 100px;
+    z-index: 2;
+}
+
+.img-hover {
+    cursor: grab;
+    display: inline-block;
+    transform-origin: center;
+    filter: grayscale(100%) blur(0px);
+    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+
+.img-hover:hover {
+    transform: scale(1.2);
+    filter: grayscale(0%) blur(0px);
+}
+
+.img-hover.dragging {
+    position: absolute !important;
+    z-index: 10;
+    cursor: grabbing;
+    margin-top:0px !important;
+    margin-left:0px !important;
+
+}
+
+
+
+
+
+
+#y{
+    margin-left: 50px;
+}
+#chu, #chu2{
+
+    z-index: 15;
+
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    margin: -60px;
+
+    width: 600px;
+    transform: scale(0.3);
+
+}
+
+
+#title{
+    width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.fruit{
+    display: flex;
+    flex-direction: column;
+    z-index: -4;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+#apple{
+    z-index: -4;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#elipse{
+    z-index: -5;
+
+    max-width: 650px;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+
+    margin-top: 100px;
+
+}
+.comau{
+    z-index: 5;
+
+    display: flex;
+    justify-content: space-between; /* Đẩy #polaroid1 sang trái, #polaroid2 sang phải */
+    align-items: center; /* Canh giữa theo chiều dọc */
+    
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 98vw; 
+    height: 0px;
+    
+}
+#kiss{
+    width: 220px;
+    margin-top: 20px;
+    cursor: grab;
+    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    filter: grayscale(100%) blur(0px);
+
+}
+#kiss1{
+    width: 220px;
+    margin-top: 330px;
+    cursor: grab;
+    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    filter: grayscale(100%) blur(0px);
+
+}
+#kiss:hover, #kiss1:hover{
+    transform: scale(1.2);
+    filter: grayscale(0%) blur(0px);
+}
+
+#kiss.dragging, #kiss1.dragging {
+    opacity: 0.6; /* Làm mờ khi kéo */
+    cursor: grabbing; /* Đổi icon chuột */
+    transform: scale(1.1); /* Phóng to nhẹ khi kéo */
+}
+
+#biggroup{
+   /* background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(171,119,255,1) 100%);*/
+   
+  /* background: url(img/tape.png);
+   background-size:contain;
+   background-repeat: no-repeat;
+   background-position: center;*/
+
+    align-items: center;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 600px;
+
+    /*border: 5px dashed #ff52bd;
+    border-radius: 50px;*/
+}
+.buttons{
+    position:fixed;
+    display: flex;
+    flex-direction: row;
+
+    padding: 10px;
+    right: 0px;
+    margin-top: 0px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#playBtn{
+    margin-right: 30px;
+    z-index: 5;
+    font-size: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    
+    border: 2px solid #ff69c1;
+    border-radius: 50px;
+
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(231,231,231,1) 100%);
+
+    transition: transform 0.1s ease-in-out;
+}
+#playBtn:hover{
+    transform: scale(1.1);
+    
+    border: 2px solid #ff69c1;
+    border-radius: 50px;
+
+    background-color: #cdf1ff;
+    cursor:pointer;
+}
+
+#yes_button, #no_button{
+    font-size: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    color: #000000;
+    /*-webkit-text-stroke-color: #ff50b0;
+    -webkit-text-stroke-width: 1px;*/
+
+    text-align: center;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 20px;
+    white-space: nowrap;
+
+    border: 2px solid #000000;
+    border-radius: 50px;
+
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(231,231,231,1) 100%);
+
+    transition: transform 0.1s ease-in-out;
+}
+
+
+.button_yesno{
+    z-index: 15;
+
+    position:fixed;
+    display: flex;
+    flex-direction: row;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 400px;
+
+    margin-top: 150px;
+    justify-content:space-evenly;
+    align-items: center;
+}
+
+#no_button {
+    z-index: 15;
+    margin-left: 150px;
+
+    position:absolute; /* Giữ nút trên màn hình */
+    transition: left 0.2s ease, top 0.2s ease; /* Hiệu ứng di chuyển mượt */
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,71,71,1) 100%);
+    transition: transform 0.1s ease-in-out;
+
+}
+#yes_button {
+    z-index: 15;
+    margin-right: 150px;
+
+    position:absolute; /* Giữ nút trên màn hình */
+    transition: left 0.2s ease, top 0.2s ease; /* Hiệu ứng di chuyển mượt */
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(86,255,48,1) 100%);
+    transition: transform 0.1s ease-in-out;
+
+}
+#no_button:hover, #yes_button:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+
+#popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    z-index: 20;
+}
+#popupContent {
+    background: url(img/kitten.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    width: 400px;
+    height: 500px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Căn giữa nội dung theo chiều ngang */
+    justify-content: center; /* Căn giữa nội dung theo chiều dọc */
+    
+    text-align: center;
+    padding: 20px;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#closeButton {
+    bottom:20px; 
+
+    padding-left: 15px;
+    padding-right: 15px;
+
+    font-size: 20px;
+    cursor: pointer;
+    
+    border: 2px solid #000000;
+    border-radius: 50px;
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgb(255, 125, 190) 100%);
+    color: rgb(0, 0, 0);
+    font-family: 'Times New Roman', Times, serif;
+
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+
+    z-index: 50;
+}
+
+#popupContent p {
+    word-wrap: break-word; /* Tự động xuống dòng nếu quá dài */
+    white-space: normal; /* Cho phép xuống dòng */
+    margin: 5px 0; /* Tạo khoảng cách giữa các dòng */
+
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-style: italic;
+}
+
+.highlight {
+    position: sticky;
+    top: 0;
+
+
+    font-family:'Times New Roman', Times, serif;
+    font-size: 25px;
+    font-style: italic;
+    line-height: 29px;
+
+    color:#ff4aba;
+
+    border: 2px solid #ff69c1;
+    border-radius: 50px;
+
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgb(177, 233, 255) 100%);    border-radius: 100px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+}
+.message-image {
+    width: 80%;
+    max-height: 200px;
+    margin: 10px auto;
+    display: block;
+    border-radius: 10px;
+}
+.scrollable-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 50px;
+    /* Hiệu ứng mượt khi cuộn */
+    scrollbar-width: thin;
+    scrollbar-color: #ff4aba  #fcffffb6; /* Màu thanh kéo */
+}
+
+
+
+/* Confetti Canvas */
+#confettiCanvas1 {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 30 !important; /* Đặt cao hơn popup */
+    visibility: visible !important;
+    display: block !important;
+
+}
+
+#confettiCanvas2 {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 30 !important; /* Đặt cao hơn popup */
+    visibility: visible !important;
+    display: block !important;
+
+}
+
+canvas{
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 30 !important; /* Đặt cao hơn popup */
+    visibility: visible !important;
+    display: block !important;
+
+}
+
+.star {
+    position: absolute;
+    top: -20px; /* Bắt đầu từ trên màn hình */
+    font-size: 20px;
+    animation: fall linear infinite;
+    color:#fcffff;
+    -webkit-text-stroke-color: #ffffff;
+    -webkit-text-stroke-width: 1px;
+
+    text-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px rgb(255, 255, 255),
+    0 0 82px rgb(255, 255, 255),
+    0 0 92px rgb(255, 255, 255),
+    0 0 102px rgb(255, 255, 255),
+    0 0 151px rgb(255, 255, 255);
+}
+
+
+@keyframes fall {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+
+@media screen and (min-width: 1900px) { 
+    #polaroid1, #polaroid2 {
+        transform: scale(1.8);
+    }
+ 
+    #kiss, #kiss1 {
+        transform: scale(1.9);
+    }
+ 
+    #container{
+        width: 78vw;
+    }
+ 
+    .comau{
+     width: 90vw;
+    }
+ 
+    #banner{
+     width: 100vw;
+     height: 5vw;
+    }
+    h1{
+     transform: scale(1.8);
+ 
+    }
+    #to{
+     margin-left: 8vw;
+    }
+    #from{
+     margin-left: 6vw;
+    }
+    .buttons{
+     margin-right: 2vw;
+    }
+
+    #playBtn{
+     transform: scale(1.8);
+     margin: 1.4vw;
+    }
+ 
+    .button_yesno{
+     transform: translate(-50%, -50%) scale(1.8);
+     margin-top: 12vw;
+    }
+     .star{
+         transform: scale(1.8);
+     }
+    #biggroup, .fruit {
+         transform: translate(-50%, -50%) scale(1.9);
+     }
+    
+    h2{
+        margin-top: 3vw;
+        
+    }
+    h3{
+        margin-top: -1vw;
+        
+    }
+    #popupContent{
+        transform: translate(-50%, -50%) scale(2);
+
+    }   
+    #confettiCanvas1 {
+        transform: scale(2);  /* Phóng to toàn bộ canvas */
+        transform-origin: center center; /* Căn giữa */
+    } 
+    #confettiCanvas2 {
+        transform: scale(1);  /* Phóng to toàn bộ canvas */
+        transform-origin: center center; /* Căn giữa */
+    } 
+    canvas{
+        transform: scale(1.1);  /* Phóng to toàn bộ canvas */ 
+    }
+    body::before {
+        background: radial-gradient(circle, rgb(255, 255, 255) 3px, transparent 3px);
+        background-size: 20px 20px; /* Tăng kích thước hạt trên màn hình lớn */
+    }
+    
+    #banner::before {
+        background: radial-gradient(circle, rgb(255, 88, 191) 3px, transparent 3px);
+        background-size: 20px 20px; /* Tăng kích thước hạt trên màn hình lớn */
+    } 
+ }
+
+@media screen and (min-width: 2500px) { 
+    #polaroid1, #polaroid2 {
+        transform: scale(2);
+    }
+ 
+    #kiss, #kiss1 {
+        transform: scale(2.1);
+    }
+ 
+    #container{
+        width: 76vw;
+    }
+ 
+    .comau{
+     width: 88vw;
+    }
+ 
+    #banner{
+     width: 100vw;
+     height: 5vw;
+    }
+    h1{
+     transform: scale(2);
+ 
+    }
+    #to{
+     margin-left: 8vw;
+    }
+    #from{
+     margin-left: 6vw;
+    }
+    .buttons{
+     margin-right: 2vw;
+    }
+
+    #playBtn{
+     transform: scale(2);
+     margin: 1.2vw;
+    }
+ 
+    .button_yesno{
+     transform: translate(-50%, -50%) scale(2);
+     margin-top: 10vw;
+    }
+     .star{
+         transform: scale(2);
+     }
+    #biggroup, .fruit {
+         transform: translate(-50%, -50%) scale(1.8);
+     }
+    
+     h2{
+        margin-top: 2vw;
+        
+    }
+    h3{
+        margin-top: -1vw;
+        
+    }
+    #popupContent{
+        transform: translate(-50%, -50%) scale(2.2);
+    }
+    #confettiCanvas1 {
+        transform: scale(2);  /* Phóng to toàn bộ canvas */
+        transform-origin: center center; /* Căn giữa */
+    } 
+    #confettiCanvas2 {
+        transform: scale(1);  /* Phóng to toàn bộ canvas */
+        transform-origin: center center; /* Căn giữa */
+    } 
+    canvas{
+        transform: scale(1.3);  /* Phóng to toàn bộ canvas */ 
+    }
+    body::before {
+        background: radial-gradient(circle, rgb(255, 255, 255) 4px, transparent 4px);
+        background-size: 25px 25px; /* Tăng kích thước hạt trên màn hình lớn */
+    }
+    
+    #banner::before {
+        background: radial-gradient(circle, rgb(255, 88, 191) 4px, transparent 4px);
+        background-size: 25px 25px; /* Tăng kích thước hạt trên màn hình lớn */
+    } 
+ }
+
+@media screen and (min-width: 3000px) { 
+   #polaroid1, #polaroid2 {
+       transform: scale(2.2);
+   }
+
+   #kiss, #kiss1 {
+    transform: scale(2.3);
+}
+
+   #container{
+       width: 72vw;
+   }
+
+   .comau{
+    width: 87vw;
+   }
+
+   #banner{
+    width: 100vw;
+    height: 5vw;
+}
+   h1{
+    transform: scale(2.5);
+
+   }
+   #to{
+    margin-left: 11vw;
+   }
+   #from{
+    margin-left: 9vw;
+   }
+   .buttons{
+    margin-right: 3vw;
+
+   }
+   #playBtn{
+    transform: scale(2.5);
+    margin: 1.5vw;
+   }
+
+   .button_yesno{
+    transform: translate(-50%, -50%) scale(2.5);
+    margin-top: 10vw;
+   }
+    .star{
+        transform: scale(2.5);
+    }
+   #biggroup, .fruit {
+        transform: translate(-50%, -50%) scale(2.2);
+    }
+   
+    h2{
+        margin-top: 2vw;
+        
+    }
+    h3{
+        margin-top: -1vw;
+        
+    }
+    #popupContent{
+        transform: translate(-50%, -50%) scale(2.5);
+
+    }
+    
+    #confettiCanvas1 {
+        transform: scale(2);  /* Phóng to toàn bộ canvas */
+        transform-origin: center center; /* Căn giữa */
+    } 
+    #confettiCanvas2 {
+        transform: scale(1);  /* Phóng to toàn bộ canvas */
+        transform-origin: center center; /* Căn giữa */
+    } 
+    canvas{
+        transform: scale(1.5);  /* Phóng to toàn bộ canvas */ 
+    }
+    body::before {
+        background: radial-gradient(circle, rgb(255, 255, 255) 5px, transparent 5px);
+        background-size: 30px 30px; /* Tăng kích thước hạt trên màn hình lớn */
+    }
+    
+    #banner::before {
+        background: radial-gradient(circle, rgb(255, 88, 191) 5px, transparent 5px);
+        background-size: 30px 30px; /* Tăng kích thước hạt trên màn hình lớn */
+    }
+}
